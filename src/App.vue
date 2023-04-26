@@ -1,7 +1,9 @@
 <template>
-  <div id="app" class="">
+  <div id="app" class="font-sans">
     <Header />
-    <router-view />
+    <div class="pl-24 pr-10 pt-5">
+      <router-view />
+    </div>
   </div>
 </template>
 
