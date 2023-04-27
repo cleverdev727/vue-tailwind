@@ -23,7 +23,7 @@
             alt="arrow"
             class="absolute w-[14px] bottom-0 right-0 cursor-pointer transition dark:invert"
             :class="{
-              'rotate-180': !cricketOpen
+              '-rotate-90': !cricketOpen
             }"
             @click="handleClick('cricket')"
           />
@@ -553,7 +553,7 @@
             alt="arrow"
             class="absolute w-[14px] bottom-0 right-0 cursor-pointer transition dark:invert"
             :class="{
-              'rotate-180': !soccerOpen
+              '-rotate-90': !soccerOpen
             }"
             @click="handleClick('soccer')"
           />
@@ -837,7 +837,7 @@
             alt="arrow"
             class="absolute w-[14px] bottom-0 right-0 cursor-pointer transition dark:invert"
             :class="{
-              'rotate-180': !tennisOpen
+              '-rotate-90': !tennisOpen
             }"
             @click="handleClick('tennis')"
           />

@@ -1,10 +1,10 @@
 <template>
   <div>
     <div
-      class="px-[5px] py-[10px] bg-warning dark:bg-header-bg border border-square-border rounded-[5px] mb-[10px]"
+      class="px-[2px] py-[10px] bg-warning dark:bg-header-bg border border-square-border rounded-[5px] mb-[10px]"
     >
       <div
-        class="flex justify-between font-montserrat font-bold text-[8px] leading-[10px] text-header-bg dark:text-white pl-[5px] pr-[10px] pb-[5px] mb-[10px] border-b border-header-bg dark:border-square-border"
+        class="flex justify-between font-montserrat font-bold text-[8px] leading-[10px] text-header-bg dark:text-white pl-[5px] pr-[10px] pb-[5px] mx-[3px] mb-[10px] border-b border-header-bg dark:border-square-border"
       >
         <div class="flex items-center">
           <img
@@ -16,18 +16,18 @@
         </div>
         <div class="flex items-end">
           <img
-            src="../../assets/imgs/arrow-down.svg"
+            src="../../assets/imgs/mobile-arrow-down.svg"
             alt="arrow"
             class="w-[14px] bottom-0 right-0 cursor-pointer transition dark:invert"
             :class="{
-              'rotate-180': !cricketOpen
+              '-rotate-90': !cricketOpen
             }"
             @click="handleClick('cricket')"
           />
         </div>
       </div>
       <div
-        class="pl-[3px] font-semibold text-[8px] leading-[11px] text-center text-header-bg dark:text-white overflow-hidden transition-all"
+        class="pl-[6px] font-semibold text-[8px] leading-[11px] text-center text-header-bg dark:text-white  overflow-y-hidden transition-all"
         :class="{
           'max-h-0' : !cricketOpen,
           'opacity-100 max-h-[1000px]' : cricketOpen,
@@ -506,36 +506,36 @@
       </div>
     </div>
     <div
-      class="px-[5px] py-[10px] bg-warning dark:bg-header-bg border border-square-border rounded-[5px] mb-[10px]"
+      class="px-[2px] py-[10px] bg-warning dark:bg-header-bg border border-square-border rounded-[5px] mb-[10px]"
     >
       <div
-        class="flex justify-between font-montserrat font-bold text-[8px] leading-[10px] text-header-bg dark:text-white pl-[5px] pr-[10px] pb-[5px] mb-[10px] border-b border-header-bg dark:border-square-border"
+        class="flex justify-between font-montserrat font-bold text-[8px] leading-[10px] text-header-bg dark:text-white pl-[5px] pr-[10px] pb-[5px] mx-[3px] mb-[10px] border-b border-header-bg dark:border-square-border"
       >
         <div class="flex items-center">
           <img
-            src="../../assets/imgs/cricket.svg"
-            alt="cricket"
+            src="../../assets/imgs/soccer.svg"
+            alt="Soccer"
             class="brightness-0 mr-[5px] h-[15px] dark:invert"
           />
-          <span>CRICKET (10)</span>
+          <span>SOCCER (10)</span>
         </div>
         <div class="flex items-end">
           <img
-            src="../../assets/imgs/arrow-down.svg"
+            src="../../assets/imgs/mobile-arrow-down.svg"
             alt="arrow"
             class="w-[14px] bottom-0 right-0 cursor-pointer transition dark:invert"
             :class="{
-              'rotate-180': !cricketOpen
+              '-rotate-90': !soccerOpen
             }"
-            @click="handleClick('cricket')"
+            @click="handleClick('soccer')"
           />
         </div>
       </div>
       <div
-        class="pl-[3px] font-semibold text-[8px] leading-[11px] text-center text-header-bg dark:text-white overflow-hidden transition-all"
+        class="pl-[6px] font-semibold text-[8px] leading-[11px] text-center text-header-bg dark:text-white  overflow-y-hidden transition-all"
         :class="{
-          'max-h-0' : !cricketOpen,
-          'opacity-100 max-h-[1000px]' : cricketOpen,
+          'max-h-0' : !soccerOpen,
+          'opacity-100 max-h-[1000px]' : soccerOpen,
         }"
       >
         <div
@@ -729,36 +729,36 @@
       </div>
     </div>
     <div
-      class="px-[5px] py-[10px] bg-warning dark:bg-header-bg border border-square-border rounded-[5px]"
+      class="px-[2px] py-[10px] bg-warning dark:bg-header-bg border border-square-border rounded-[5px]"
     >
       <div
-        class="flex justify-between font-montserrat font-bold text-[8px] leading-[10px] text-header-bg dark:text-white pl-[5px] pr-[10px] pb-[5px] mb-[10px] border-b border-header-bg dark:border-square-border"
+        class="flex justify-between font-montserrat font-bold text-[8px] leading-[10px] text-header-bg dark:text-white pl-[5px] pr-[10px] pb-[5px] mx-[3px] mb-[10px] border-b border-header-bg dark:border-square-border"
       >
         <div class="flex items-center">
           <img
-            src="../../assets/imgs/cricket.svg"
-            alt="cricket"
+            src="../../assets/imgs/tennis.svg"
+            alt="Tennis"
             class="brightness-0 mr-[5px] h-[15px] dark:invert"
           />
-          <span>CRICKET (10)</span>
+          <span>TENNIS (10)</span>
         </div>
         <div class="flex items-end">
           <img
-            src="../../assets/imgs/arrow-down.svg"
+            src="../../assets/imgs/mobile-arrow-down.svg"
             alt="arrow"
             class="w-[14px] bottom-0 right-0 cursor-pointer transition dark:invert"
             :class="{
-              'rotate-180': !cricketOpen
+              '-rotate-90': !tennisOpen
             }"
-            @click="handleClick('cricket')"
+            @click="handleClick('tennis')"
           />
         </div>
       </div>
       <div
-        class="pl-[3px] font-semibold text-[8px] leading-[11px] text-center text-header-bg dark:text-white overflow-hidden transition-all"
+        class="pl-[6px] font-semibold text-[8px] leading-[11px] text-center text-header-bg dark:text-white  overflow-y-hidden transition-all"
         :class="{
-          'max-h-0' : !cricketOpen,
-          'opacity-100 max-h-[1000px]' : cricketOpen,
+          'max-h-0' : !tennisOpen,
+          'opacity-100 max-h-[1000px]' : tennisOpen,
         }"
       >
         <div
