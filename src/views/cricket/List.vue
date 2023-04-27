@@ -1,33 +1,1148 @@
 <template>
   <div>
-    <div class="flex h-10 items-center justify-start rounded-[5px] bg-warning px-[10px] mb-[10px]">
-      <div class="flex font-bold text-xs text-header-bg">
-        <div class="flex justify-start w-40 px-4 py-[6px] mr-[5px] rounded-[7px]">
-          <img src="../../assets/imgs/live.svg" alt="Live" class="h-[15px] mr-[10px]">
+    <div
+      class="flex h-10 items-center justify-start rounded-[5px] bg-warning dark:bg-header-bg px-[10px] mb-[10px]"
+    >
+      <div class="flex font-bold text-xs text-header-bg dark:text-white">
+        <div class="flex justify-start w-40 px-4 py-[6px] mr-[5px] rounded-[7px] cursor-pointer">
+          <img
+            src="../../assets/imgs/live.svg"
+            alt="Live"
+            class="h-[15px] mr-[10px] dark:brightness-0 dark:invert"
+          />
           <span>L I V E</span>
         </div>
-        <div class="flex justify-start w-40 px-4 py-[6px] mr-[5px] rounded-[7px] bg-header-bg">
-          <img src="../../assets/imgs/cricket.svg" alt="cricket" class="h-[15px] mr-[10px]">
-          <span class="text-warning">C R I C K E T</span>
+        <div
+          class="flex justify-start w-40 px-4 py-[6px] mr-[5px] rounded-[7px] cursor-pointer bg-header-bg dark:bg-warning"
+        >
+          <img
+            src="../../assets/imgs/cricket.svg"
+            alt="cricket"
+            class="h-[15px] mr-[10px] dark:brightness-0"
+          />
+          <span class="text-warning dark:text-header-bg">C R I C K E T</span>
         </div>
-        <div class="flex justify-start w-40 px-4 py-[6px] mr-[5px] rounded-[7px]">
-          <img src="../../assets/imgs/soccer.svg" alt="Live" class="h-[15px] mr-[10px]">
+        <div class="flex justify-start w-40 px-4 py-[6px] mr-[5px] rounded-[7px] cursor-pointer">
+          <img
+            src="../../assets/imgs/soccer.svg"
+            alt="Live"
+            class="h-[15px] mr-[10px] dark:brightness-0 dark:invert"
+          />
           <span>S O C C E R</span>
         </div>
-        <div class="flex justify-start w-40 px-4 py-[6px] mr-[5px] rounded-[7px]">
-          <img src="../../assets/imgs/tennis.svg" alt="Live" class="h-[15px] mr-[10px]">
+        <div class="flex justify-start w-40 px-4 py-[6px] mr-[5px] rounded-[7px] cursor-pointer">
+          <img
+            src="../../assets/imgs/tennis.svg"
+            alt="Live"
+            class="h-[15px] mr-[10px] dark:brightness-0 dark:invert"
+          />
           <span>T E N N I S</span>
         </div>
-        <div class="flex justify-start w-40 px-4 py-[6px] mr-[5px] rounded-[7px]">
-          <img src="../../assets/imgs/badminton.svg" alt="Live" class="h-[15px] mr-[10px]">
+        <div class="flex justify-start w-40 px-4 py-[6px] mr-[5px] rounded-[7px] cursor-pointer">
+          <img
+            src="../../assets/imgs/badminton.svg"
+            alt="Live"
+            class="h-[15px] mr-[10px] dark:brightness-0 dark:invert"
+          />
           <span>B A D M I N T O N</span>
         </div>
       </div>
     </div>
-    <div class="px-3 py-[10px] bg-warning border border-square-border rounded-[10px]">
-      <div class="flex justify-between">
-        <div class="flex">
-          <img src="../../assets/imgs/cricket.svg" alt="cricket" class="brightness-0">
+    <div
+      class="pl-[10px] pr-[15px] py-[10px] bg-warning dark:bg-header-bg border border-square-border rounded-[10px] mb-5"
+    >
+      <div
+        class="flex justify-between font-montserrat font-semibold text-sm text-header-bg dark:text-white pr-5 pb-[10px] mb-[10px] border-b border-header-bg dark:border-square-border"
+      >
+        <div class="flex items-center">
+          <img
+            src="../../assets/imgs/cricket.svg"
+            alt="cricket"
+            class="brightness-0 mr-[11px] h-[25px] dark:invert"
+          />
+          <span>CRICKET (10)</span>
+        </div>
+        <div class="relative flex w-[635px] items-center">
+          <span class="w-1/3 text-center">1</span>
+          <span class="w-1/3 text-center">X</span>
+          <span class="w-1/3 text-center">2</span>
+          <img
+            src="../../assets/imgs/arrow-down.svg"
+            alt="arrow"
+            class="absolute w-[14px] bottom-0 right-0 cursor-pointer transition dark:invert"
+            :class="{
+              'rotate-180': !cricketOpen
+            }"
+            @click="handleClick('cricket')"
+          />
+        </div>
+      </div>
+      <div
+        class="pl-2 font-semibold text-xs text-center text-header-bg dark:text-white overflow-hidden transition-all"
+        :class="{
+          'max-h-0' : !cricketOpen,
+          'opacity-100 max-h-[1000px]' : cricketOpen,
+        }"
+      >
+        <div
+          class="group relative flex justify-between bg-white dark:bg-dark-row-bg hover:bg-row-hover-bg dark:hover:bg-row-hover-bg border border-white dark:border-dark-row-border dark:hover:border-warning rounded-[3px] px-5 py-[5px] mb-[5px]"
+        >
+          <div
+            class="absolute hidden items-center justify-center w-[37px] h-[15px] left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-header-bg dark:bg-warning rounded-sm -rotate-90 group-hover:flex"
+          >
+            <span class="font-bold text-[10px] leading-[14px] text-warning dark:text-header-bg mb-[1px]">LIVE</span>
+          </div>
+          <div class="flex">
+            <div class="flex flex-col mr-5">
+              <span class="mb-[3px]">Today</span>
+              <span>08:43 PM</span>
+            </div>
+            <hr class="w-0 h-8 border-[1.5px] border-warning mr-5" />
+            <div>
+              <div class="flex mb-[5px]">
+                <div class="flex items-center mr-[5px]">
+                  <img src="../../assets/imgs/india.svg" alt="India" class="w-[15px] mr-[5px]" />
+                  <span>India</span>
+                </div>
+                <img src="../../assets/imgs/vs.svg" alt="VS" class="w-[15px] mr-[5px]" />
+                <div class="flex items-center">
+                  <img
+                    src="../../assets/imgs/pakistan.svg"
+                    alt="Pakishtan"
+                    class="w-[15px] mr-[5px]"
+                  />
+                  <span>Pakishtan</span>
+                </div>
+              </div>
+              <span class="text-muted">ICC World Cricket League Matches</span>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <div class="flex mr-5">
+              <img
+                src="../../assets/imgs/play.svg"
+                alt="Play"
+                class="w-[15px] mr-[10px] cursor-pointer"
+              />
+              <img src="../../assets/imgs/chart.svg" alt="Chart" class="w-[15px] cursor-pointer" />
+            </div>
+            <div class="flex">
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-blue-bg border border-blue rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.69</span>
+                <span class="text-[10px] leading-[14px]">1.69k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-pink-bg border border-pink rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.7</span>
+                <span class="text-[10px] leading-[14px]">1.74k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-blue-bg border border-blue rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.69</span>
+                <span class="text-[10px] leading-[14px]">1.69k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-pink-bg border border-pink rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.7</span>
+                <span class="text-[10px] leading-[14px]">1.74k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-blue-bg border border-blue rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.69</span>
+                <span class="text-[10px] leading-[14px]">1.69k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-pink-bg border border-pink rounded-[5px]"
+              >
+                <span class="font-bold">1.7</span>
+                <span class="text-[10px] leading-[14px]">1.74k</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="group relative flex justify-between bg-white dark:bg-dark-row-bg hover:bg-row-hover-bg dark:hover:bg-row-hover-bg border border-white dark:border-dark-row-border dark:hover:border-warning rounded-[3px] px-5 py-[5px] mb-[5px]"
+        >
+          <div
+            class="absolute hidden items-center justify-center w-[37px] h-[15px] left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-header-bg dark:bg-warning rounded-sm -rotate-90 group-hover:flex"
+          >
+            <span class="font-bold text-[10px] leading-[14px] text-warning dark:text-header-bg mb-[1px]">LIVE</span>
+          </div>
+          <div class="flex">
+            <div class="flex flex-col mr-5">
+              <span class="mb-[3px]">Today</span>
+              <span>08:43 PM</span>
+            </div>
+            <hr class="w-0 h-8 border-[1.5px] border-warning mr-5" />
+            <div>
+              <div class="flex mb-[5px]">
+                <div class="flex items-center mr-[5px]">
+                  <img src="../../assets/imgs/india.svg" alt="India" class="w-[15px] mr-[5px]" />
+                  <span>India</span>
+                </div>
+                <img src="../../assets/imgs/vs.svg" alt="VS" class="w-[15px] mr-[5px]" />
+                <div class="flex items-center">
+                  <img
+                    src="../../assets/imgs/pakistan.svg"
+                    alt="Pakishtan"
+                    class="w-[15px] mr-[5px]"
+                  />
+                  <span>Pakishtan</span>
+                </div>
+              </div>
+              <span class="text-muted">ICC World Cricket League Matches</span>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <div class="flex mr-5">
+              <img
+                src="../../assets/imgs/play.svg"
+                alt="Play"
+                class="w-[15px] mr-[10px] cursor-pointer"
+              />
+              <img src="../../assets/imgs/chart.svg" alt="Chart" class="w-[15px] cursor-pointer" />
+            </div>
+            <div class="flex">
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-blue-bg border border-blue rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.69</span>
+                <span class="text-[10px] leading-[14px]">1.69k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-pink-bg border border-pink rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.7</span>
+                <span class="text-[10px] leading-[14px]">1.74k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-blue-bg border border-blue rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.69</span>
+                <span class="text-[10px] leading-[14px]">1.69k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-pink-bg border border-pink rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.7</span>
+                <span class="text-[10px] leading-[14px]">1.74k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-blue-bg border border-blue rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.69</span>
+                <span class="text-[10px] leading-[14px]">1.69k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-pink-bg border border-pink rounded-[5px]"
+              >
+                <span class="font-bold">1.7</span>
+                <span class="text-[10px] leading-[14px]">1.74k</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="group relative flex justify-between bg-white dark:bg-dark-row-bg hover:bg-row-hover-bg dark:hover:bg-row-hover-bg border border-white dark:border-dark-row-border dark:hover:border-warning rounded-[3px] px-5 py-[5px] mb-[5px]"
+        >
+          <div
+            class="absolute hidden items-center justify-center w-[37px] h-[15px] left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-header-bg dark:bg-warning rounded-sm -rotate-90 group-hover:flex"
+          >
+            <span class="font-bold text-[10px] leading-[14px] text-warning dark:text-header-bg mb-[1px]">LIVE</span>
+          </div>
+          <div class="flex">
+            <div class="flex flex-col mr-5">
+              <span class="mb-[3px]">Today</span>
+              <span>08:43 PM</span>
+            </div>
+            <hr class="w-0 h-8 border-[1.5px] border-warning mr-5" />
+            <div>
+              <div class="flex mb-[5px]">
+                <div class="flex items-center mr-[5px]">
+                  <img src="../../assets/imgs/india.svg" alt="India" class="w-[15px] mr-[5px]" />
+                  <span>India</span>
+                </div>
+                <img src="../../assets/imgs/vs.svg" alt="VS" class="w-[15px] mr-[5px]" />
+                <div class="flex items-center">
+                  <img
+                    src="../../assets/imgs/pakistan.svg"
+                    alt="Pakishtan"
+                    class="w-[15px] mr-[5px]"
+                  />
+                  <span>Pakishtan</span>
+                </div>
+              </div>
+              <span class="text-muted">ICC World Cricket League Matches</span>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <div class="flex mr-5">
+              <img
+                src="../../assets/imgs/play.svg"
+                alt="Play"
+                class="w-[15px] mr-[10px] cursor-pointer"
+              />
+              <img src="../../assets/imgs/chart.svg" alt="Chart" class="w-[15px] cursor-pointer" />
+            </div>
+            <div class="flex">
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-blue-bg border border-blue rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.69</span>
+                <span class="text-[10px] leading-[14px]">1.69k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-pink-bg border border-pink rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.7</span>
+                <span class="text-[10px] leading-[14px]">1.74k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-blue-bg border border-blue rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.69</span>
+                <span class="text-[10px] leading-[14px]">1.69k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-pink-bg border border-pink rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.7</span>
+                <span class="text-[10px] leading-[14px]">1.74k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-blue-bg border border-blue rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.69</span>
+                <span class="text-[10px] leading-[14px]">1.69k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-pink-bg border border-pink rounded-[5px]"
+              >
+                <span class="font-bold">1.7</span>
+                <span class="text-[10px] leading-[14px]">1.74k</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="group relative flex justify-between bg-white dark:bg-dark-row-bg hover:bg-row-hover-bg dark:hover:bg-row-hover-bg border border-white dark:border-dark-row-border dark:hover:border-warning rounded-[3px] px-5 py-[5px] mb-[5px]"
+        >
+          <div
+            class="absolute hidden items-center justify-center w-[37px] h-[15px] left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-header-bg dark:bg-warning rounded-sm -rotate-90 group-hover:flex"
+          >
+            <span class="font-bold text-[10px] leading-[14px] text-warning dark:text-header-bg mb-[1px]">LIVE</span>
+          </div>
+          <div class="flex">
+            <div class="flex flex-col mr-5">
+              <span class="mb-[3px]">Today</span>
+              <span>08:43 PM</span>
+            </div>
+            <hr class="w-0 h-8 border-[1.5px] border-warning mr-5" />
+            <div>
+              <div class="flex mb-[5px]">
+                <div class="flex items-center mr-[5px]">
+                  <img src="../../assets/imgs/india.svg" alt="India" class="w-[15px] mr-[5px]" />
+                  <span>India</span>
+                </div>
+                <img src="../../assets/imgs/vs.svg" alt="VS" class="w-[15px] mr-[5px]" />
+                <div class="flex items-center">
+                  <img
+                    src="../../assets/imgs/pakistan.svg"
+                    alt="Pakishtan"
+                    class="w-[15px] mr-[5px]"
+                  />
+                  <span>Pakishtan</span>
+                </div>
+              </div>
+              <span class="text-muted">ICC World Cricket League Matches</span>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <div class="flex mr-5">
+              <img
+                src="../../assets/imgs/play.svg"
+                alt="Play"
+                class="w-[15px] mr-[10px] cursor-pointer"
+              />
+              <img src="../../assets/imgs/chart.svg" alt="Chart" class="w-[15px] cursor-pointer" />
+            </div>
+            <div class="flex">
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-blue-bg border border-blue rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.69</span>
+                <span class="text-[10px] leading-[14px]">1.69k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-pink-bg border border-pink rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.7</span>
+                <span class="text-[10px] leading-[14px]">1.74k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-blue-bg border border-blue rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.69</span>
+                <span class="text-[10px] leading-[14px]">1.69k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-pink-bg border border-pink rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.7</span>
+                <span class="text-[10px] leading-[14px]">1.74k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-blue-bg border border-blue rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.69</span>
+                <span class="text-[10px] leading-[14px]">1.69k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-pink-bg border border-pink rounded-[5px]"
+              >
+                <span class="font-bold">1.7</span>
+                <span class="text-[10px] leading-[14px]">1.74k</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="group relative flex justify-between bg-white dark:bg-dark-row-bg hover:bg-row-hover-bg dark:hover:bg-row-hover-bg border border-white dark:border-dark-row-border dark:hover:border-warning rounded-[3px] px-5 py-[5px] mb-[5px]"
+        >
+          <div
+            class="absolute hidden items-center justify-center w-[37px] h-[15px] left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-header-bg dark:bg-warning rounded-sm -rotate-90 group-hover:flex"
+          >
+            <span class="font-bold text-[10px] leading-[14px] text-warning dark:text-header-bg mb-[1px]">LIVE</span>
+          </div>
+          <div class="flex">
+            <div class="flex flex-col mr-5">
+              <span class="mb-[3px]">Today</span>
+              <span>08:43 PM</span>
+            </div>
+            <hr class="w-0 h-8 border-[1.5px] border-warning mr-5" />
+            <div>
+              <div class="flex mb-[5px]">
+                <div class="flex items-center mr-[5px]">
+                  <img src="../../assets/imgs/india.svg" alt="India" class="w-[15px] mr-[5px]" />
+                  <span>India</span>
+                </div>
+                <img src="../../assets/imgs/vs.svg" alt="VS" class="w-[15px] mr-[5px]" />
+                <div class="flex items-center">
+                  <img
+                    src="../../assets/imgs/pakistan.svg"
+                    alt="Pakishtan"
+                    class="w-[15px] mr-[5px]"
+                  />
+                  <span>Pakishtan</span>
+                </div>
+              </div>
+              <span class="text-muted">ICC World Cricket League Matches</span>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <div class="flex mr-5">
+              <img
+                src="../../assets/imgs/play.svg"
+                alt="Play"
+                class="w-[15px] mr-[10px] cursor-pointer"
+              />
+              <img src="../../assets/imgs/chart.svg" alt="Chart" class="w-[15px] cursor-pointer" />
+            </div>
+            <div class="flex">
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-blue-bg border border-blue rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.69</span>
+                <span class="text-[10px] leading-[14px]">1.69k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-pink-bg border border-pink rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.7</span>
+                <span class="text-[10px] leading-[14px]">1.74k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-blue-bg border border-blue rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.69</span>
+                <span class="text-[10px] leading-[14px]">1.69k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-pink-bg border border-pink rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.7</span>
+                <span class="text-[10px] leading-[14px]">1.74k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-blue-bg border border-blue rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.69</span>
+                <span class="text-[10px] leading-[14px]">1.69k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-pink-bg border border-pink rounded-[5px]"
+              >
+                <span class="font-bold">1.7</span>
+                <span class="text-[10px] leading-[14px]">1.74k</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="group relative flex justify-between bg-white dark:bg-dark-row-bg hover:bg-row-hover-bg dark:hover:bg-row-hover-bg border border-white dark:border-dark-row-border dark:hover:border-warning rounded-[3px] px-5 py-[5px] mb-[5px]"
+        >
+          <div
+            class="absolute hidden items-center justify-center w-[37px] h-[15px] left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-header-bg dark:bg-warning rounded-sm -rotate-90 group-hover:flex"
+          >
+            <span class="font-bold text-[10px] leading-[14px] text-warning dark:text-header-bg mb-[1px]">LIVE</span>
+          </div>
+          <div class="flex">
+            <div class="flex flex-col mr-5">
+              <span class="mb-[3px]">Today</span>
+              <span>08:43 PM</span>
+            </div>
+            <hr class="w-0 h-8 border-[1.5px] border-warning mr-5" />
+            <div>
+              <div class="flex mb-[5px]">
+                <div class="flex items-center mr-[5px]">
+                  <img src="../../assets/imgs/india.svg" alt="India" class="w-[15px] mr-[5px]" />
+                  <span>India</span>
+                </div>
+                <img src="../../assets/imgs/vs.svg" alt="VS" class="w-[15px] mr-[5px]" />
+                <div class="flex items-center">
+                  <img
+                    src="../../assets/imgs/pakistan.svg"
+                    alt="Pakishtan"
+                    class="w-[15px] mr-[5px]"
+                  />
+                  <span>Pakishtan</span>
+                </div>
+              </div>
+              <span class="text-muted">ICC World Cricket League Matches</span>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <div class="flex mr-5">
+              <img
+                src="../../assets/imgs/play.svg"
+                alt="Play"
+                class="w-[15px] mr-[10px] cursor-pointer"
+              />
+              <img src="../../assets/imgs/chart.svg" alt="Chart" class="w-[15px] cursor-pointer" />
+            </div>
+            <div class="flex">
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-blue-bg border border-blue rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.69</span>
+                <span class="text-[10px] leading-[14px]">1.69k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-pink-bg border border-pink rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.7</span>
+                <span class="text-[10px] leading-[14px]">1.74k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-blue-bg border border-blue rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.69</span>
+                <span class="text-[10px] leading-[14px]">1.69k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-pink-bg border border-pink rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.7</span>
+                <span class="text-[10px] leading-[14px]">1.74k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-blue-bg border border-blue rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.69</span>
+                <span class="text-[10px] leading-[14px]">1.69k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-pink-bg border border-pink rounded-[5px]"
+              >
+                <span class="font-bold">1.7</span>
+                <span class="text-[10px] leading-[14px]">1.74k</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="pl-[10px] pr-[15px] py-[10px] bg-warning dark:bg-header-bg border border-square-border rounded-[10px] mb-5"
+    >
+      <div
+        class="flex justify-between font-montserrat font-semibold text-sm text-header-bg dark:text-white pr-5 pb-[10px] mb-[10px] border-b border-header-bg dark:border-square-border"
+      >
+        <div class="flex items-center">
+          <img
+            src="../../assets/imgs/soccer.svg"
+            alt="soccer"
+            class="brightness-0 mr-[11px] h-[25px] dark:invert"
+          />
+          <span>SOCCER (10)</span>
+        </div>
+        <div class="relative flex w-[635px] items-center">
+          <span class="w-1/3 text-center">1</span>
+          <span class="w-1/3 text-center">X</span>
+          <span class="w-1/3 text-center">2</span>
+          <img
+            src="../../assets/imgs/arrow-down.svg"
+            alt="arrow"
+            class="absolute w-[14px] bottom-0 right-0 cursor-pointer transition dark:invert"
+            :class="{
+              'rotate-180': !soccerOpen
+            }"
+            @click="handleClick('soccer')"
+          />
+        </div>
+      </div>
+      <div
+        class="pl-2 font-semibold text-xs text-center text-header-bg dark:text-white overflow-hidden transition-all"
+        :class="{
+          'max-h-0' : !soccerOpen,
+          'opacity-100 max-h-[1000px]' : soccerOpen,
+        }"
+      >
+        <div
+          class="group relative flex justify-between bg-white dark:bg-dark-row-bg hover:bg-row-hover-bg dark:hover:bg-row-hover-bg border border-white dark:border-dark-row-border dark:hover:border-warning rounded-[3px] px-5 py-[5px] mb-[5px]"
+        >
+          <div
+            class="absolute hidden items-center justify-center w-[37px] h-[15px] left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-header-bg dark:bg-warning rounded-sm -rotate-90 group-hover:flex"
+          >
+            <span class="font-bold text-[10px] leading-[14px] text-warning dark:text-header-bg mb-[1px]">LIVE</span>
+          </div>
+          <div class="flex">
+            <div class="flex flex-col mr-5">
+              <span class="mb-[3px]">Today</span>
+              <span>08:43 PM</span>
+            </div>
+            <hr class="w-0 h-8 border-[1.5px] border-warning mr-5" />
+            <div>
+              <div class="flex mb-[5px]">
+                <div class="flex items-center mr-[5px]">
+                  <img src="../../assets/imgs/india.svg" alt="India" class="w-[15px] mr-[5px]" />
+                  <span>India</span>
+                </div>
+                <img src="../../assets/imgs/vs.svg" alt="VS" class="w-[15px] mr-[5px]" />
+                <div class="flex items-center">
+                  <img
+                    src="../../assets/imgs/pakistan.svg"
+                    alt="Pakishtan"
+                    class="w-[15px] mr-[5px]"
+                  />
+                  <span>Pakishtan</span>
+                </div>
+              </div>
+              <span class="text-muted">ICC World Cricket League Matches</span>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <div class="flex mr-5">
+              <img
+                src="../../assets/imgs/play.svg"
+                alt="Play"
+                class="w-[15px] mr-[10px] cursor-pointer"
+              />
+              <img src="../../assets/imgs/chart.svg" alt="Chart" class="w-[15px] cursor-pointer" />
+            </div>
+            <div class="flex">
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-blue-bg border border-blue rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.69</span>
+                <span class="text-[10px] leading-[14px]">1.69k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-pink-bg border border-pink rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.7</span>
+                <span class="text-[10px] leading-[14px]">1.74k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-blue-bg border border-blue rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.69</span>
+                <span class="text-[10px] leading-[14px]">1.69k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-pink-bg border border-pink rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.7</span>
+                <span class="text-[10px] leading-[14px]">1.74k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-blue-bg border border-blue rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.69</span>
+                <span class="text-[10px] leading-[14px]">1.69k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-pink-bg border border-pink rounded-[5px]"
+              >
+                <span class="font-bold">1.7</span>
+                <span class="text-[10px] leading-[14px]">1.74k</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="group relative flex justify-between bg-white dark:bg-dark-row-bg hover:bg-row-hover-bg dark:hover:bg-row-hover-bg border border-white dark:border-dark-row-border dark:hover:border-warning rounded-[3px] px-5 py-[5px] mb-[5px]"
+        >
+          <div
+            class="absolute hidden items-center justify-center w-[37px] h-[15px] left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-header-bg dark:bg-warning rounded-sm -rotate-90 group-hover:flex"
+          >
+            <span class="font-bold text-[10px] leading-[14px] text-warning dark:text-header-bg mb-[1px]">LIVE</span>
+          </div>
+          <div class="flex">
+            <div class="flex flex-col mr-5">
+              <span class="mb-[3px]">Today</span>
+              <span>08:43 PM</span>
+            </div>
+            <hr class="w-0 h-8 border-[1.5px] border-warning mr-5" />
+            <div>
+              <div class="flex mb-[5px]">
+                <div class="flex items-center mr-[5px]">
+                  <img src="../../assets/imgs/india.svg" alt="India" class="w-[15px] mr-[5px]" />
+                  <span>India</span>
+                </div>
+                <img src="../../assets/imgs/vs.svg" alt="VS" class="w-[15px] mr-[5px]" />
+                <div class="flex items-center">
+                  <img
+                    src="../../assets/imgs/pakistan.svg"
+                    alt="Pakishtan"
+                    class="w-[15px] mr-[5px]"
+                  />
+                  <span>Pakishtan</span>
+                </div>
+              </div>
+              <span class="text-muted">ICC World Cricket League Matches</span>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <div class="flex mr-5">
+              <img
+                src="../../assets/imgs/play.svg"
+                alt="Play"
+                class="w-[15px] mr-[10px] cursor-pointer"
+              />
+              <img src="../../assets/imgs/chart.svg" alt="Chart" class="w-[15px] cursor-pointer" />
+            </div>
+            <div class="flex">
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-blue-bg border border-blue rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.69</span>
+                <span class="text-[10px] leading-[14px]">1.69k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-pink-bg border border-pink rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.7</span>
+                <span class="text-[10px] leading-[14px]">1.74k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-blue-bg border border-blue rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.69</span>
+                <span class="text-[10px] leading-[14px]">1.69k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-pink-bg border border-pink rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.7</span>
+                <span class="text-[10px] leading-[14px]">1.74k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-blue-bg border border-blue rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.69</span>
+                <span class="text-[10px] leading-[14px]">1.69k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-pink-bg border border-pink rounded-[5px]"
+              >
+                <span class="font-bold">1.7</span>
+                <span class="text-[10px] leading-[14px]">1.74k</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="group relative flex justify-between bg-white dark:bg-dark-row-bg hover:bg-row-hover-bg dark:hover:bg-row-hover-bg border border-white dark:border-dark-row-border dark:hover:border-warning rounded-[3px] px-5 py-[5px] mb-[5px]"
+        >
+          <div
+            class="absolute hidden items-center justify-center w-[37px] h-[15px] left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-header-bg dark:bg-warning rounded-sm -rotate-90 group-hover:flex"
+          >
+            <span class="font-bold text-[10px] leading-[14px] text-warning dark:text-header-bg mb-[1px]">LIVE</span>
+          </div>
+          <div class="flex">
+            <div class="flex flex-col mr-5">
+              <span class="mb-[3px]">Today</span>
+              <span>08:43 PM</span>
+            </div>
+            <hr class="w-0 h-8 border-[1.5px] border-warning mr-5" />
+            <div>
+              <div class="flex mb-[5px]">
+                <div class="flex items-center mr-[5px]">
+                  <img src="../../assets/imgs/india.svg" alt="India" class="w-[15px] mr-[5px]" />
+                  <span>India</span>
+                </div>
+                <img src="../../assets/imgs/vs.svg" alt="VS" class="w-[15px] mr-[5px]" />
+                <div class="flex items-center">
+                  <img
+                    src="../../assets/imgs/pakistan.svg"
+                    alt="Pakishtan"
+                    class="w-[15px] mr-[5px]"
+                  />
+                  <span>Pakishtan</span>
+                </div>
+              </div>
+              <span class="text-muted">ICC World Cricket League Matches</span>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <div class="flex mr-5">
+              <img
+                src="../../assets/imgs/play.svg"
+                alt="Play"
+                class="w-[15px] mr-[10px] cursor-pointer"
+              />
+              <img src="../../assets/imgs/chart.svg" alt="Chart" class="w-[15px] cursor-pointer" />
+            </div>
+            <div class="flex">
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-blue-bg border border-blue rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.69</span>
+                <span class="text-[10px] leading-[14px]">1.69k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-pink-bg border border-pink rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.7</span>
+                <span class="text-[10px] leading-[14px]">1.74k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-blue-bg border border-blue rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.69</span>
+                <span class="text-[10px] leading-[14px]">1.69k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-pink-bg border border-pink rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.7</span>
+                <span class="text-[10px] leading-[14px]">1.74k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-blue-bg border border-blue rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.69</span>
+                <span class="text-[10px] leading-[14px]">1.69k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-pink-bg border border-pink rounded-[5px]"
+              >
+                <span class="font-bold">1.7</span>
+                <span class="text-[10px] leading-[14px]">1.74k</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="pl-[10px] pr-[15px] py-[10px] bg-warning dark:bg-header-bg border border-square-border rounded-[10px] mb-5"
+    >
+      <div
+        class="flex justify-between font-montserrat font-semibold text-sm text-header-bg dark:text-white pr-5 pb-[10px] mb-[10px] border-b border-header-bg dark:border-square-border"
+      >
+        <div class="flex items-center">
+          <img
+            src="../../assets/imgs/tennis.svg"
+            alt="tennis"
+            class="brightness-0 mr-[11px] h-[25px] dark:invert"
+          />
+          <span>TENNIS (10)</span>
+        </div>
+        <div class="relative flex w-[635px] items-center">
+          <span class="w-1/3 text-center">1</span>
+          <span class="w-1/3 text-center">X</span>
+          <span class="w-1/3 text-center">2</span>
+          <img
+            src="../../assets/imgs/arrow-down.svg"
+            alt="arrow"
+            class="absolute w-[14px] bottom-0 right-0 cursor-pointer transition dark:invert"
+            :class="{
+              'rotate-180': !tennisOpen
+            }"
+            @click="handleClick('tennis')"
+          />
+        </div>
+      </div>
+      <div
+        class="pl-2 font-semibold text-xs text-center text-header-bg dark:text-white overflow-hidden transition-all"
+        :class="{
+          'max-h-0' : !tennisOpen,
+          'opacity-100 max-h-[1000px]' : tennisOpen,
+        }"
+      >
+        <div
+          class="group relative flex justify-between bg-white dark:bg-dark-row-bg hover:bg-row-hover-bg dark:hover:bg-row-hover-bg border border-white dark:border-dark-row-border dark:hover:border-warning rounded-[3px] px-5 py-[5px] mb-[5px]"
+        >
+          <div
+            class="absolute hidden items-center justify-center w-[37px] h-[15px] left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-header-bg dark:bg-warning rounded-sm -rotate-90 group-hover:flex"
+          >
+            <span class="font-bold text-[10px] leading-[14px] text-warning dark:text-header-bg mb-[1px]">LIVE</span>
+          </div>
+          <div class="flex">
+            <div class="flex flex-col mr-5">
+              <span class="mb-[3px]">Today</span>
+              <span>08:43 PM</span>
+            </div>
+            <hr class="w-0 h-8 border-[1.5px] border-warning mr-5" />
+            <div>
+              <div class="flex mb-[5px]">
+                <div class="flex items-center mr-[5px]">
+                  <img src="../../assets/imgs/india.svg" alt="India" class="w-[15px] mr-[5px]" />
+                  <span>India</span>
+                </div>
+                <img src="../../assets/imgs/vs.svg" alt="VS" class="w-[15px] mr-[5px]" />
+                <div class="flex items-center">
+                  <img
+                    src="../../assets/imgs/pakistan.svg"
+                    alt="Pakishtan"
+                    class="w-[15px] mr-[5px]"
+                  />
+                  <span>Pakishtan</span>
+                </div>
+              </div>
+              <span class="text-muted">ICC World Cricket League Matches</span>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <div class="flex mr-5">
+              <img
+                src="../../assets/imgs/play.svg"
+                alt="Play"
+                class="w-[15px] mr-[10px] cursor-pointer"
+              />
+              <img src="../../assets/imgs/chart.svg" alt="Chart" class="w-[15px] cursor-pointer" />
+            </div>
+            <div class="flex">
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-blue-bg border border-blue rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.69</span>
+                <span class="text-[10px] leading-[14px]">1.69k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-pink-bg border border-pink rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.7</span>
+                <span class="text-[10px] leading-[14px]">1.74k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-blue-bg border border-blue rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.69</span>
+                <span class="text-[10px] leading-[14px]">1.69k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-pink-bg border border-pink rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.7</span>
+                <span class="text-[10px] leading-[14px]">1.74k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-blue-bg border border-blue rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.69</span>
+                <span class="text-[10px] leading-[14px]">1.69k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-pink-bg border border-pink rounded-[5px]"
+              >
+                <span class="font-bold">1.7</span>
+                <span class="text-[10px] leading-[14px]">1.74k</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="group relative flex justify-between bg-white dark:bg-dark-row-bg hover:bg-row-hover-bg dark:hover:bg-row-hover-bg border border-white dark:border-dark-row-border dark:hover:border-warning rounded-[3px] px-5 py-[5px] mb-[5px]"
+        >
+          <div
+            class="absolute hidden items-center justify-center w-[37px] h-[15px] left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-header-bg dark:bg-warning rounded-sm -rotate-90 group-hover:flex"
+          >
+            <span class="font-bold text-[10px] leading-[14px] text-warning dark:text-header-bg mb-[1px]">LIVE</span>
+          </div>
+          <div class="flex">
+            <div class="flex flex-col mr-5">
+              <span class="mb-[3px]">Today</span>
+              <span>08:43 PM</span>
+            </div>
+            <hr class="w-0 h-8 border-[1.5px] border-warning mr-5" />
+            <div>
+              <div class="flex mb-[5px]">
+                <div class="flex items-center mr-[5px]">
+                  <img src="../../assets/imgs/india.svg" alt="India" class="w-[15px] mr-[5px]" />
+                  <span>India</span>
+                </div>
+                <img src="../../assets/imgs/vs.svg" alt="VS" class="w-[15px] mr-[5px]" />
+                <div class="flex items-center">
+                  <img
+                    src="../../assets/imgs/pakistan.svg"
+                    alt="Pakishtan"
+                    class="w-[15px] mr-[5px]"
+                  />
+                  <span>Pakishtan</span>
+                </div>
+              </div>
+              <span class="text-muted">ICC World Cricket League Matches</span>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <div class="flex mr-5">
+              <img
+                src="../../assets/imgs/play.svg"
+                alt="Play"
+                class="w-[15px] mr-[10px] cursor-pointer"
+              />
+              <img src="../../assets/imgs/chart.svg" alt="Chart" class="w-[15px] cursor-pointer" />
+            </div>
+            <div class="flex">
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-blue-bg border border-blue rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.69</span>
+                <span class="text-[10px] leading-[14px]">1.69k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-pink-bg border border-pink rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.7</span>
+                <span class="text-[10px] leading-[14px]">1.74k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-blue-bg border border-blue rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.69</span>
+                <span class="text-[10px] leading-[14px]">1.69k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-pink-bg border border-pink rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.7</span>
+                <span class="text-[10px] leading-[14px]">1.74k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-blue-bg border border-blue rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.69</span>
+                <span class="text-[10px] leading-[14px]">1.69k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-pink-bg border border-pink rounded-[5px]"
+              >
+                <span class="font-bold">1.7</span>
+                <span class="text-[10px] leading-[14px]">1.74k</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="group relative flex justify-between bg-white dark:bg-dark-row-bg hover:bg-row-hover-bg dark:hover:bg-row-hover-bg border border-white dark:border-dark-row-border dark:hover:border-warning rounded-[3px] px-5 py-[5px] mb-[5px]"
+        >
+          <div
+            class="absolute hidden items-center justify-center w-[37px] h-[15px] left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-header-bg dark:bg-warning rounded-sm -rotate-90 group-hover:flex"
+          >
+            <span class="font-bold text-[10px] leading-[14px] text-warning dark:text-header-bg mb-[1px]">LIVE</span>
+          </div>
+          <div class="flex">
+            <div class="flex flex-col mr-5">
+              <span class="mb-[3px]">Today</span>
+              <span>08:43 PM</span>
+            </div>
+            <hr class="w-0 h-8 border-[1.5px] border-warning mr-5" />
+            <div>
+              <div class="flex mb-[5px]">
+                <div class="flex items-center mr-[5px]">
+                  <img src="../../assets/imgs/india.svg" alt="India" class="w-[15px] mr-[5px]" />
+                  <span>India</span>
+                </div>
+                <img src="../../assets/imgs/vs.svg" alt="VS" class="w-[15px] mr-[5px]" />
+                <div class="flex items-center">
+                  <img
+                    src="../../assets/imgs/pakistan.svg"
+                    alt="Pakishtan"
+                    class="w-[15px] mr-[5px]"
+                  />
+                  <span>Pakishtan</span>
+                </div>
+              </div>
+              <span class="text-muted">ICC World Cricket League Matches</span>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <div class="flex mr-5">
+              <img
+                src="../../assets/imgs/play.svg"
+                alt="Play"
+                class="w-[15px] mr-[10px] cursor-pointer"
+              />
+              <img src="../../assets/imgs/chart.svg" alt="Chart" class="w-[15px] cursor-pointer" />
+            </div>
+            <div class="flex">
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-blue-bg border border-blue rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.69</span>
+                <span class="text-[10px] leading-[14px]">1.69k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-pink-bg border border-pink rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.7</span>
+                <span class="text-[10px] leading-[14px]">1.74k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-blue-bg border border-blue rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.69</span>
+                <span class="text-[10px] leading-[14px]">1.69k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-pink-bg border border-pink rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.7</span>
+                <span class="text-[10px] leading-[14px]">1.74k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-blue-bg border border-blue rounded-[5px] mr-[7px]"
+              >
+                <span class="font-bold">1.69</span>
+                <span class="text-[10px] leading-[14px]">1.69k</span>
+              </div>
+              <div
+                class="flex flex-col justify-center w-[100px] h-[41px] bg-pink-bg border border-pink rounded-[5px]"
+              >
+                <span class="font-bold">1.7</span>
+                <span class="text-[10px] leading-[14px]">1.74k</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -36,6 +1151,20 @@
 
 <script>
 export default {
-  name: "cricket-list-view"
-}
+  name: "cricket-list-view",
+  data: function() {
+    return {
+      cricketOpen: true,
+      soccerOpen: true,
+      tennisOpen: true
+    };
+  },
+  methods: {
+    handleClick(id) {
+      id == "cricket" && (this.cricketOpen = !this.cricketOpen);
+      id == "soccer" && (this.soccerOpen = !this.soccerOpen);
+      id == "tennis" && (this.tennisOpen = !this.tennisOpen);
+    }
+  }
+};
 </script>
