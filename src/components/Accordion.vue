@@ -1,25 +1,22 @@
 <template>
   <div
     class="pl-[10px] pr-[15px] py-[10px] bg-warning dark:bg-header-bg border border-square-border rounded-[10px]"
-    :class="{
-      'mb-5': bottomFlag
-    }"
   >
     <div
       class="flex justify-between font-montserrat font-semibold text-sm text-header-bg dark:text-white pr-5 pb-[10px] mb-[10px] border-b border-header-bg dark:border-square-border"
     >
       <div class="flex items-center">
         <img
-          :src="require(`../assets/imgs/${avatar}`)"
+          :src="require(`../assets/imgs/${type}.svg`)"
           :alt="alt"
           class="brightness-0 mr-[11px] h-[25px] dark:invert"
         />
-        <span>{{ title }}</span>
+        <span class="uppercase">{{ `${type} (${num})` }} </span>
       </div>
       <div class="relative flex w-[635px] items-center">
-        <span class="w-1/3 text-center">{{ score1 }}</span>
+        <span class="w-1/3 text-center">{{ scores[0] }}</span>
         <span class="w-1/3 text-center">X</span>
-        <span class="w-1/3 text-center">{{ score2 }}</span>
+        <span class="w-1/3 text-center">{{ scores[1] }}</span>
         <img
           src="../assets/imgs/arrow-down.svg"
           alt="arrow"
@@ -38,12 +35,9 @@
         'opacity-100 max-h-[1000px]' : open,
       }"
     >
-      <MatchRow
-        v-for="(row, key) in matchRows"
-        :key="key"
-        v-bind="row"
-        :bottomFlag="key == matchRows.length - 1 ? false : true"
-      />
+      <div v-for="(row, key) in matchRows" :key="key" class="mb-[5px] last:mb-0">
+        <MatchRow v-bind="row" />
+      </div>
     </div>
   </div>
 </template>
@@ -56,12 +50,9 @@ export default {
     MatchRow
   },
   props: {
-    bottomFlag: Boolean,
-    avatar: String,
-    alt: String,
-    title: String,
-    score1: Number,
-    score2: Number,
+    type: String,
+    num: Number,
+    scores: Array,
     matchRows: Array
   },
   data: function() {
