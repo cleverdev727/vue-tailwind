@@ -1,0 +1,78 @@
+<template>
+  <div
+    class="pl-[10px] pr-[15px] py-[10px] bg-warning dark:bg-header-bg border border-square-border rounded-[10px]"
+    :class="{
+      'mb-5': bottomFlag
+    }"
+  >
+    <div
+      class="flex justify-between font-montserrat font-semibold text-sm text-header-bg dark:text-white pr-5 pb-[10px] mb-[10px] border-b border-header-bg dark:border-square-border"
+    >
+      <div class="flex items-center">
+        <img
+          :src="require(`../assets/imgs/${avatar}`)"
+          :alt="alt"
+          class="brightness-0 mr-[11px] h-[25px] dark:invert"
+        />
+        <span>{{ title }}</span>
+      </div>
+      <div class="relative flex w-[635px] items-center">
+        <span class="w-1/3 text-center">{{ score1 }}</span>
+        <span class="w-1/3 text-center">X</span>
+        <span class="w-1/3 text-center">{{ score2 }}</span>
+        <img
+          src="../assets/imgs/arrow-down.svg"
+          alt="arrow"
+          class="absolute w-[14px] bottom-0 right-0 cursor-pointer transition dark:invert"
+          :class="{
+            '-rotate-90': !open
+          }"
+          @click="handleClick()"
+        />
+      </div>
+    </div>
+    <div
+      class="pl-2 font-semibold text-xs text-center text-header-bg dark:text-white overflow-hidden transition-all"
+      :class="{
+        'max-h-0' : !open,
+        'opacity-100 max-h-[1000px]' : open,
+      }"
+    >
+      <MatchRow
+        v-for="(row, key) in matchRows"
+        :key="key"
+        v-bind="row"
+        :bottomFlag="key == matchRows.length - 1 ? false : true"
+      />
+    </div>
+  </div>
+</template>
+
+<script>
+import MatchRow from './MatchRow.vue';
+export default {
+  name: 'accordion-component',
+  components: {
+    MatchRow
+  },
+  props: {
+    bottomFlag: Boolean,
+    avatar: String,
+    alt: String,
+    title: String,
+    score1: Number,
+    score2: Number,
+    matchRows: Array
+  },
+  data: function() {
+    return {
+      open: true,
+    }
+  },
+  methods: {
+    handleClick() {
+      this.open = !this.open;
+    }
+  }
+}
+</script>
